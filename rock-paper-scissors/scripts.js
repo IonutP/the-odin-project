@@ -7,12 +7,14 @@ let computerSelection;
 
 let summary = document.getElementById('summary');
 
+// get users choice from window prompt
 function getUserChoice() {
     let choice = window.prompt("What's your choice?").toLowerCase();
     summary.innerHTML += 'Player chooses ' + choice + '. ';
     return choice;
 }
 
+// get a random computer choice
 function getComputerChoice(){
     let choices = ['Rock','Paper','Scissors'];
     let randomChoice = choices[Math.floor(Math.random() * 3)].toLowerCase();
@@ -20,11 +22,13 @@ function getComputerChoice(){
     return randomChoice;
 }
 
+// play round with player and computer selection
 function playRound(playerSelection, computerSelection) {
     gameCount++;
     return compareChoices(getUserChoice(), getComputerChoice());
 }
 
+// who won after round play?
 function compareChoices(compareChoice, compareToChoice){
     let message = '';
 
@@ -48,10 +52,10 @@ function compareChoices(compareChoice, compareToChoice){
     return message;
 }
 
+// play 5 rounds
 function game(){
     for (i = 1; i <= 5; i++) {
         addSummary('Game #' + i + '!');
-        // playRound(playerSelection, computerSelection);
         addSummary(playRound(playerSelection, computerSelection) + ' <br />');
     }
     if (playerWin == computerWin) {
@@ -63,7 +67,9 @@ function game(){
     }
 }
 
+// let's add some summary text for each round
 function addSummary(message){
     summary.innerHTML += message + '<br />';
 }
+// init
 game();
