@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <button id="1">Click Me</button>
+        <button id="2">Click Me</button>
+        <button id="3">Click Me</button>
+    </div>
+    <script>
+        // buttons is a node list. It looks and acts much like an array.
+        const buttons = document.querySelectorAll('button');
+
+        // we use the .forEach method to iterate through each button
+        buttons.forEach((button) => {
+
+            // and for each one we add a 'click' listener
+            button.addEventListener('click', () => {
+                alert(button.id);
+            });
+        });
+        // const body = document.querySelector('body');
+
+        // let paragraph = document.createElement('p');
+        // paragraph.textContent = "Hey I'm red!";
+        // paragraph.style.color = 'red';
+        // body.appendChild(paragraph);
+
+        // let heading = document.createElement('h3');
+        // heading.textContent = "I'm a blue h3!";
+        // heading.style.color = "blue";
+        // body.appendChild(heading);
+
+        // let container = document.createElement('div');
+        // container.style.border = "1px solid black";
+        // container.style.backgroundColor = "pink";
+
+        // let heading1 = document.createElement('h1');
+        // heading1.textContent = "I’m in a div";
+        // container.appendChild(heading1);
+
+        // let paragraph2 = document.createElement('p');
+        // paragraph2.textContent = "ME TOO!";
+        // container.appendChild(paragraph2);
+
+        // body.appendChild(container);
+    </script>
+</body>
+</html>

@@ -55,10 +55,6 @@ function compareChoices(compareChoice, compareToChoice){
 
 // play 5 rounds
 function game(){
-    // for (i = 1; i <= 5; i++) {
-    //     addSummary('Game #' + i + '!');
-    //     addSummary(playRound(playerSelection, computerSelection) + ' <br />');
-    // }
     if (playerWin == computerWin) {
         addSummary(`It's a tie! Score was ${playerWin} - ${computerWin}.`);
     } else if (playerWin > computerWin) {
@@ -75,19 +71,18 @@ function addSummary(message){
 // init
 play.addEventListener('click', function(e){
     e.preventDefault();
-    // if (gameCount < 5) {
-        addSummary('Game #' + (gameCount + 1) + '!');
-        addSummary(playRound(playerSelection, computerSelection) + ' <br />');
-    // } else {
-        if (gameCount == 5) {
-            e.target.style.display = 'none';
-            if (playerWin == computerWin) {
-                addSummary(`It's a tie! Score was ${playerWin} - ${computerWin}.`);
-            } else if (playerWin > computerWin) {
-                addSummary(`You are the winner! Score was ${playerWin} - ${computerWin}.`);
-            } else if (computerWin > playerWin) {
-                addSummary(`Computer is the winner! Score was ${playerWin} - ${computerWin}.`);
-            }
+    addSummary('Game #' + (gameCount + 1) + '!');
+    addSummary(playRound(playerSelection, computerSelection) + ' <br />');
+    if (gameCount == 1) {
+        play.textContent = 'Play Again';
+    } else if (gameCount == 5) {
+        e.target.style.display = 'none';
+        if (playerWin == computerWin) {
+            addSummary(`It's a tie! Score was ${playerWin} - ${computerWin}.`);
+        } else if (playerWin > computerWin) {
+            addSummary(`You are the winner! Score was ${playerWin} - ${computerWin}.`);
+        } else if (computerWin > playerWin) {
+            addSummary(`Computer is the winner! Score was ${playerWin} - ${computerWin}.`);
         }
-    // }
+    }
 })
